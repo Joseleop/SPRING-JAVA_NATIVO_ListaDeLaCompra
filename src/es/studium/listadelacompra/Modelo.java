@@ -1,6 +1,7 @@
 package es.studium.listadelacompra;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -9,11 +10,11 @@ import java.nio.charset.StandardCharsets;
 
 public class Modelo {
 
-    private final String KEY_DESCRIPCION = "descripcion";
-    private final String KEY_CANTIDAD = "cantidad";
-    private final String KEY_MEDIDA = "medida";
+    private static final String KEY_DESCRIPCION = "descripcion";
+    private static final String KEY_CANTIDAD = "cantidad";
+    private static final String KEY_MEDIDA = "medida";
 
-    public void guardarDatos(ListaDeLaCompra lista) {
+    public void guardarDatos(ListaDeLaCompra lista) throws IOException {
         JSONArray productos = new JSONArray();
 
         for (int i = 0; i < lista.getArticulos().size(); i++) {
@@ -26,17 +27,14 @@ public class Modelo {
 
             productos.put(obj);
         }
-        try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(lista.getNombreLista() + ".json"),StandardCharsets.UTF_8)) {
+        try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(lista.getNombreLista() + ".json"), StandardCharsets.UTF_8)) {
             writer.write(productos.toString(4));
-        } catch (IOException e) {
-            System.err.println("Se ha producido un ERROR al generar el JSON " + e.getMessage());
         }
     }
 
-    public ListaDeLaCompra leerDatos(ListaDeLaCompra lista){
-        ListaDeLaCompra listaDeLaCompra = new ListaDeLaCompra();
-        listaDeLaCompra.setNombreLista(lista.getNombreLista());
-        try (InputStreamReader reader = new InputStreamReader(new FileInputStream(lista.getNombreLista() + ".json"),StandardCharsets.UTF_8)) {
+    public ListaDeLaCompra leerDatos(String nombre) throws IOException {
+        ListaDeLaCompra listaDeLaCompra = new ListaDeLaCompra(nombre);
+        try (InputStreamReader reader = new InputStreamReader(new FileInputStream(nombre + ".json"), StandardCharsets.UTF_8)) {
             JSONArray productos = new JSONArray(new JSONTokener(reader));
 
             for (int i = 0; i < productos.length(); i++) {
@@ -46,12 +44,13 @@ public class Modelo {
                 int cantidad = producto.getInt(KEY_CANTIDAD);
                 String medida = producto.getString(KEY_MEDIDA);
 
-                ArticuloAComprar nuevoArticulo = new ArticuloAComprar(descripcion,cantidad,medida);
+                ArticuloAComprar nuevoArticulo = new ArticuloAComprar(descripcion, cantidad, medida);
                 listaDeLaCompra.agregarProductoAComprar(nuevoArticulo);
             }
-        } catch (IOException e) {
-            System.err.println("Se ha producido un ERROR al leer el JSON " + e.getMessage());
+        } catch (JSONException e) {
+            throw new IOException("El archivo no tiene un formato JSON válido", e);
         }
+
         return listaDeLaCompra;
     }
 }
