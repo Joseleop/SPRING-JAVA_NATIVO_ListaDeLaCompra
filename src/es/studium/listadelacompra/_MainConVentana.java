@@ -1,3 +1,4 @@
+/*
 package es.studium.listadelacompra;
 
 public class MainConVentana {
@@ -8,3 +9,4 @@ public class MainConVentana {
         new ControladorConVentana(vistaConVentana, modeloConVentana);
     }
 }
+*/

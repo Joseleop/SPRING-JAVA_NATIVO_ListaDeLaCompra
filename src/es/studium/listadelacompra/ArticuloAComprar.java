@@ -5,6 +5,12 @@ public class ArticuloAComprar {
     private int cantidad;
     private String medida;
 
+    public ArticuloAComprar (String descripcion, int cantidad, String medida){
+        this.descripcion = descripcion;
+        this.cantidad = cantidad;
+        this.medida = medida;
+    }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }

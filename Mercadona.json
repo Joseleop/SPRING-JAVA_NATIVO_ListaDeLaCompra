@@ -1,0 +1,22 @@
+[
+    {
+        "descripcion": "Paquete de arroz",
+        "medida": "Kg",
+        "cantidad": 3
+    },
+    {
+        "descripcion": "Botella de leche",
+        "medida": "L",
+        "cantidad": 6
+    },
+    {
+        "descripcion": "Docena de huevos",
+        "medida": "U",
+        "cantidad": 1
+    },
+    {
+        "descripcion": "Aceite de oliva virgen",
+        "medida": "L",
+        "cantidad": 2
+    }
+]

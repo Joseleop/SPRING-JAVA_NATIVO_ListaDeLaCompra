@@ -1,3 +1,4 @@
+/*
 package es.studium.listadelacompra;
 
 import javax.swing.*;
@@ -85,3 +86,4 @@ public class ControladorConVentana implements ActionListener {
         vistaConVentana.txtMedida.setText("");
     }
 }
+*/

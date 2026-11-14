@@ -1,3 +1,4 @@
+/*
 package es.studium.listadelacompra;
 
 import javax.swing.*;
@@ -69,3 +70,4 @@ public class VistaConVentana {
         frame.setVisible(true);
     }
 }
+*/
