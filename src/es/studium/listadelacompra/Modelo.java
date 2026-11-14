@@ -33,7 +33,8 @@ public class Modelo {
     }
 
     public ListaDeLaCompra leerDatos(String nombre) throws IOException {
-        ListaDeLaCompra listaDeLaCompra = new ListaDeLaCompra(nombre);
+        ListaDeLaCompra listaDeLaCompra = new ListaDeLaCompra();
+        listaDeLaCompra.setNombreLista(nombre);
         try (InputStreamReader reader = new InputStreamReader(new FileInputStream(nombre + ".json"), StandardCharsets.UTF_8)) {
             JSONArray productos = new JSONArray(new JSONTokener(reader));
 

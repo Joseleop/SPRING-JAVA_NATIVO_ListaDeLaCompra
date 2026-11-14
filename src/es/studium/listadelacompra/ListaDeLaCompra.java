@@ -6,7 +6,7 @@ import java.util.List;
 public class ListaDeLaCompra {
 
     private String nombreLista;
-    private List<ArticuloAComprar> articulos;
+    private final List<ArticuloAComprar> articulos;
 
     public ListaDeLaCompra() {
         this.nombreLista = "";
