@@ -36,7 +36,7 @@ public class Vista {
                         i + 1,
                         articulo.getDescripcion(),
                         articulo.getCantidad(),
-                        articulo.getMedida());
+                        articulo.getUnidad());
             }
         }
 

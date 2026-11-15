@@ -3,12 +3,12 @@ package es.studium.listadelacompra;
 public class ArticuloAComprar {
     private String descripcion;
     private int cantidad;
-    private String medida;
+    private String unidad;
 
-    public ArticuloAComprar(String descripcion, int cantidad, String medida) {
+    public ArticuloAComprar(String descripcion, int cantidad, String unidad) {
         this.descripcion = descripcion;
         this.cantidad = cantidad;
-        this.medida = medida;
+        this.unidad = unidad;
     }
 
     public String getDescripcion() {
@@ -27,11 +27,11 @@ public class ArticuloAComprar {
         this.cantidad = cantidad;
     }
 
-    public String getMedida() {
-        return this.medida;
+    public String getUnidad() {
+        return this.unidad;
     }
 
-    public void setMedida(String medida) {
-        this.medida = medida;
+    public void setUnidad(String unidad) {
+        this.unidad = unidad;
     }
 }

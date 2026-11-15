@@ -12,7 +12,7 @@ public class Modelo {
 
     private static final String KEY_DESCRIPCION = "descripcion";
     private static final String KEY_CANTIDAD = "cantidad";
-    private static final String KEY_MEDIDA = "medida";
+    private static final String KEY_UNIDAD = "unidad";
 
     public void guardarDatos(ListaDeLaCompra lista) throws IOException {
         JSONArray productos = new JSONArray();
@@ -23,7 +23,7 @@ public class Modelo {
             JSONObject obj = new JSONObject();
             obj.put(KEY_DESCRIPCION, articulo.getDescripcion());
             obj.put(KEY_CANTIDAD, articulo.getCantidad());
-            obj.put(KEY_MEDIDA, articulo.getMedida());
+            obj.put(KEY_UNIDAD, articulo.getUnidad());
 
             productos.put(obj);
         }
@@ -43,7 +43,7 @@ public class Modelo {
 
                 String descripcion = producto.getString(KEY_DESCRIPCION);
                 int cantidad = producto.getInt(KEY_CANTIDAD);
-                String medida = producto.getString(KEY_MEDIDA);
+                String medida = producto.getString(KEY_UNIDAD);
 
                 ArticuloAComprar nuevoArticulo = new ArticuloAComprar(descripcion, cantidad, medida);
                 listaDeLaCompra.agregarProductoAComprar(nuevoArticulo);
