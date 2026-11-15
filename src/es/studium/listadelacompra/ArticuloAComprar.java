@@ -15,22 +15,20 @@ public class ArticuloAComprar {
         return this.descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public int getCantidad() {
         return this.cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     public String getUnidad() {
         return this.unidad;
     }
 
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
     public void setUnidad(String unidad) {
         this.unidad = unidad;
     }
